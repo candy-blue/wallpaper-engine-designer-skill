@@ -1,11 +1,11 @@
 ---
-name: wallpaper-engine-designer
-description: Use when the task involves Wallpaper Engine scene wallpapers, web wallpapers, SceneScript, shader programming, user properties, particles, puppet warp, parallax, audio visualization, performance tuning, or Wallpaper Engine-specific implementation guidance. Choose scene or web first, then use the bundled references and examples in this skill repository before coding.
+name: wallpaper-engine
+description: Use when the task involves designing, implementing, debugging, optimizing, or publishing any Wallpaper Engine wallpaper. Covers scene wallpapers, web wallpapers, SceneScript, shader programming, user properties, particles, puppet warp, parallax, audio visualization, performance tuning, and Wallpaper Engine-specific implementation guidance.
 ---
 
-# Wallpaper Engine Designer
+# Wallpaper Engine
 
-Use this skill for Wallpaper Engine work that needs product-specific guidance rather than generic game-dev, graphics, or web-dev advice.
+Use this skill for any Wallpaper Engine development task that needs product-specific guidance rather than generic game-dev, graphics, or web-dev advice.
 
 ## What This Skill Is For
 
@@ -20,7 +20,7 @@ Use it when the user wants to:
 - decide between **built-in effects**, **timeline**, **SceneScript**, **web JavaScript**, or **shaders**
 - improve **performance** or prepare a wallpaper for **publishing**
 
-This skill is meant to produce implementation guidance, not just a doc index.
+This skill is meant to produce implementation guidance, review guidance, debugging help, and architectural choices, not just a doc index.
 
 ## Bundled References
 
@@ -33,7 +33,7 @@ Start with the smallest relevant file:
 - [references/examples.md](references/examples.md)
 - [references/performance-and-publishing.md](references/performance-and-publishing.md)
 
-Supplementary navigation files:
+Supplementary routing files:
 
 - [references/doc-paths.md](references/doc-paths.md)
 - [references/task-recipes.md](references/task-recipes.md)
@@ -49,7 +49,7 @@ Decide the wallpaper type before doing anything else.
 
 ### Scene wallpaper
 
-Use the scene docs when the request mentions:
+Use the scene route when the request mentions:
 
 - scene wallpaper
 - Wallpaper Engine editor
@@ -72,7 +72,7 @@ Start here:
 
 ### Web wallpaper
 
-Use the web docs when the request mentions:
+Use the web route when the request mentions:
 
 - web wallpaper
 - HTML
@@ -95,7 +95,7 @@ Start here:
 1. Identify whether the user needs a scene wallpaper or a web wallpaper.
 2. Pick the lightest-weight Wallpaper Engine mechanism that can solve the task.
 3. Read only the smallest relevant bundled reference files.
-4. Convert the references into concrete steps, code, or debugging guidance.
+4. Convert the references into concrete steps, code, debugging guidance, or review feedback.
 5. Name the exact Wallpaper Engine subsystem being used in the answer.
 
 ## Preferred Order Of Solutions
@@ -129,13 +129,20 @@ When several approaches could work, prefer them in this order:
 
 Read [references/task-recipes.md](references/task-recipes.md) first.
 
+### If the user asks to debug or review an existing wallpaper
+
+1. Identify whether it is `scene` or `web`
+2. Read the matching reference file
+3. Read [references/examples.md](references/examples.md) for known-good patterns
+4. Read [references/performance-and-publishing.md](references/performance-and-publishing.md) if the issue involves lag, memory, FPS, or release readiness
+
 ## Expected Output
 
 When responding, prefer this structure:
 
 1. Name the chosen subsystem: `scene`, `web`, `SceneScript`, `timeline`, `user properties`, `shader`, etc.
-2. Explain the minimum viable approach.
-3. Provide steps or code.
+2. Explain the minimum viable approach or the likely root cause.
+3. Provide steps, code, or findings.
 4. Call out Wallpaper Engine-specific caveats.
 
 ## Decision Rules
@@ -148,6 +155,8 @@ When responding, prefer this structure:
 - For “mouse depth movement”, go to parallax docs first.
 - For “character deformation” or Live2D-like motion, go to puppet warp docs first.
 - For custom visual effects, inspect built-in effects before shader programming.
+- For debugging, prefer identifying the Wallpaper Engine subsystem first before changing code.
+- For review tasks, prioritize behavior regressions, missing property guards, event misuse, and performance risks.
 
 ## Product-Specific Caveats
 
@@ -164,4 +173,5 @@ When responding, prefer this structure:
 - Be concrete and implementation-oriented.
 - Prefer small working snippets over abstract explanations.
 - Explain tradeoffs when choosing between timeline, SceneScript, web JavaScript, and shaders.
+- For review tasks, present findings before summaries.
 - If the request is ambiguous, infer `scene` vs `web` from the user's files, APIs, and terminology.

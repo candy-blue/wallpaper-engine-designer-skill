@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wallpaper Engine"
+  short_description: "Build and debug Wallpaper Engine projects"
+  default_prompt: "Help me design, implement, debug, optimize, or review a Wallpaper Engine scene wallpaper, web wallpaper, SceneScript feature, shader, or customization flow."
