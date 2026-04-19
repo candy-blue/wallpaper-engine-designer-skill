@@ -1,17 +1,17 @@
 ---
 name: wallpaper-engine-designer
-description: Use when the task involves Wallpaper Engine scene wallpapers, web wallpapers, SceneScript, shader programming, user properties, particles, puppet warp, parallax, audio visualization, or Wallpaper Engine-specific implementation guidance. Read the local docs mirror at D:\Project\wallpaper-engine-docs, choose scene or web first, then use the matching documentation path before coding.
+description: Use when the task involves Wallpaper Engine scene wallpapers, web wallpapers, SceneScript, shader programming, user properties, particles, puppet warp, parallax, audio visualization, or Wallpaper Engine-specific implementation guidance. Choose scene or web first, then use the bundled reference files in this skill repository before coding.
 ---
 
 # Wallpaper Engine Designer
 
 Use this skill for Wallpaper Engine work that needs product-specific guidance rather than generic game-dev or web-dev advice.
 
-## Docs Root
+## Bundled References
 
-- Local mirror: `D:\Project\wallpaper-engine-docs`
-- Prefer Chinese docs under `D:\Project\wallpaper-engine-docs\docs\zh`
-- Fall back to English docs under `D:\Project\wallpaper-engine-docs\docs\en` when the Chinese page is missing or incomplete
+- Read [references/doc-paths.md](references/doc-paths.md) for the doc structure and entry points
+- Read [references/task-recipes.md](references/task-recipes.md) for task-to-doc routing
+- These files are part of this skill repository, so do not depend on any local filesystem path
 
 ## First Decision
 
@@ -41,8 +41,8 @@ Use the scene docs when the request mentions:
 
 Start here:
 
-- `D:\Project\wallpaper-engine-docs\docs\zh\scene\overview.md`
-- `D:\Project\wallpaper-engine-docs\docs\zh\scene\first\gettingstarted.md`
+- `scene/overview`
+- `scene/first/gettingstarted`
 
 ### Web wallpaper
 
@@ -60,8 +60,8 @@ Use the web docs when the request mentions:
 
 Start here:
 
-- `D:\Project\wallpaper-engine-docs\docs\zh\web\overview.md`
-- `D:\Project\wallpaper-engine-docs\docs\zh\web\first\gettingstarted.md`
+- `web/overview`
+- `web/first/gettingstarted`
 
 ## Core Workflow
 
@@ -82,75 +82,11 @@ When several approaches could work, prefer them in this order:
 5. Web JavaScript for web wallpapers
 6. Custom shaders only when built-in effects are not enough
 
-## Scene Doc Map
+## Reference Strategy
 
-- First wallpaper:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\first\gettingstarted.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\first\effects.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\first\assets.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\first\properties.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\first\publishing.md`
-- Effects:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\effects\introduction.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\effects\overview.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\effects\effect\*.md`
-- User properties:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\userproperties\overview.md`
-  `color.md`
-  `slider.md`
-  `checkbox.md`
-  `combo.md`
-  `text.md`
-  `texture.md`
-- Audio visualizer:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\audiovisualizer\overview.md`
-- Timeline:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\timeline\introduction.md`
-- Image preparation:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\image-preparation\foreground-separation.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\image-preparation\character-sheet.md`
-- Particles:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\particles\introduction.md`
-- Puppet warp:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\puppet-warp\introduction.md`
-- Parallax:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\parallax\introduction.md`
-- SceneScript:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\scenescript\introduction.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\scenescript\tutorials.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\scenescript\reference.md`
-- Models:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\models\introduction.md`
-- Shaders:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\shader\overview.md`
-- Lighting:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\lighting\introduction.md`
-- Performance:
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\performance\resolution.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\scene\performance\texture.md`
-
-## Web Doc Map
-
-- Overview:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\overview.md`
-- Getting started:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\first\gettingstarted.md`
-- Custom properties:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\customization\properties.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\customization\displaycondition.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\customization\localization.md`
-- Property listener API:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\api\propertylistener.md`
-- Audio APIs:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\audio\visualizer.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\audio\media.md`
-- RGB APIs:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\api\rgb.md`
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\api\icue.md`
-- Performance:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\performance\fps.md`
-- Debugging:
-  `D:\Project\wallpaper-engine-docs\docs\zh\web\debug\debug.md`
+- Use `references/doc-paths.md` when you need a map of the documentation tree
+- Use `references/task-recipes.md` when the user describes a goal like "music reactive wallpaper" or "custom property"
+- Keep answers grounded in Wallpaper Engine terms: scene, web, SceneScript, timeline, user properties, shader, puppet warp, parallax
 
 ## Decision Rules
 
