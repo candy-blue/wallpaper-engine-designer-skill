@@ -1,17 +1,42 @@
 ---
 name: wallpaper-engine-designer
-description: Use when the task involves Wallpaper Engine scene wallpapers, web wallpapers, SceneScript, shader programming, user properties, particles, puppet warp, parallax, audio visualization, or Wallpaper Engine-specific implementation guidance. Choose scene or web first, then use the bundled reference files in this skill repository before coding.
+description: Use when the task involves Wallpaper Engine scene wallpapers, web wallpapers, SceneScript, shader programming, user properties, particles, puppet warp, parallax, audio visualization, performance tuning, or Wallpaper Engine-specific implementation guidance. Choose scene or web first, then use the bundled references and examples in this skill repository before coding.
 ---
 
 # Wallpaper Engine Designer
 
-Use this skill for Wallpaper Engine work that needs product-specific guidance rather than generic game-dev or web-dev advice.
+Use this skill for Wallpaper Engine work that needs product-specific guidance rather than generic game-dev, graphics, or web-dev advice.
+
+## What This Skill Is For
+
+Use it when the user wants to:
+
+- build or debug a **scene wallpaper**
+- build or debug a **web wallpaper**
+- write **SceneScript**
+- react to **user properties**
+- add **audio visualization**
+- implement **parallax** or **puppet warp**
+- decide between **built-in effects**, **timeline**, **SceneScript**, **web JavaScript**, or **shaders**
+- improve **performance** or prepare a wallpaper for **publishing**
+
+This skill is meant to produce implementation guidance, not just a doc index.
 
 ## Bundled References
 
-- Read [references/doc-paths.md](references/doc-paths.md) for the doc structure and entry points
-- Read [references/task-recipes.md](references/task-recipes.md) for task-to-doc routing
-- These files are part of this skill repository, so do not depend on any local filesystem path
+Start with the smallest relevant file:
+
+- [references/scene-wallpapers.md](references/scene-wallpapers.md)
+- [references/web-wallpapers.md](references/web-wallpapers.md)
+- [references/scenescript.md](references/scenescript.md)
+- [references/web-api.md](references/web-api.md)
+- [references/examples.md](references/examples.md)
+- [references/performance-and-publishing.md](references/performance-and-publishing.md)
+
+Supplementary navigation files:
+
+- [references/doc-paths.md](references/doc-paths.md)
+- [references/task-recipes.md](references/task-recipes.md)
 
 ## First Decision
 
@@ -43,6 +68,7 @@ Start here:
 
 - `scene/overview`
 - `scene/first/gettingstarted`
+- Then read `references/scene-wallpapers.md`
 
 ### Web wallpaper
 
@@ -62,13 +88,14 @@ Start here:
 
 - `web/overview`
 - `web/first/gettingstarted`
+- Then read `references/web-wallpapers.md`
 
 ## Core Workflow
 
 1. Identify whether the user needs a scene wallpaper or a web wallpaper.
-2. Prefer built-in Wallpaper Engine mechanisms before custom code.
-3. Read only the smallest relevant doc set.
-4. Convert the docs into concrete steps, code, or debugging guidance.
+2. Pick the lightest-weight Wallpaper Engine mechanism that can solve the task.
+3. Read only the smallest relevant bundled reference files.
+4. Convert the references into concrete steps, code, or debugging guidance.
 5. Name the exact Wallpaper Engine subsystem being used in the answer.
 
 ## Preferred Order Of Solutions
@@ -82,11 +109,34 @@ When several approaches could work, prefer them in this order:
 5. Web JavaScript for web wallpapers
 6. Custom shaders only when built-in effects are not enough
 
-## Reference Strategy
+## Read Order By Task
 
-- Use `references/doc-paths.md` when you need a map of the documentation tree
-- Use `references/task-recipes.md` when the user describes a goal like "music reactive wallpaper" or "custom property"
-- Keep answers grounded in Wallpaper Engine terms: scene, web, SceneScript, timeline, user properties, shader, puppet warp, parallax
+### If the user is building a scene wallpaper
+
+1. Read [references/scene-wallpapers.md](references/scene-wallpapers.md)
+2. If code is needed, read [references/scenescript.md](references/scenescript.md)
+3. If the user asks for concrete patterns, read [references/examples.md](references/examples.md)
+4. If optimization or release is involved, read [references/performance-and-publishing.md](references/performance-and-publishing.md)
+
+### If the user is building a web wallpaper
+
+1. Read [references/web-wallpapers.md](references/web-wallpapers.md)
+2. Read [references/web-api.md](references/web-api.md) for Wallpaper Engine browser integration
+3. If the user asks for concrete patterns, read [references/examples.md](references/examples.md)
+4. If optimization is involved, read [references/performance-and-publishing.md](references/performance-and-publishing.md)
+
+### If the user asks for “how should I do this?”
+
+Read [references/task-recipes.md](references/task-recipes.md) first.
+
+## Expected Output
+
+When responding, prefer this structure:
+
+1. Name the chosen subsystem: `scene`, `web`, `SceneScript`, `timeline`, `user properties`, `shader`, etc.
+2. Explain the minimum viable approach.
+3. Provide steps or code.
+4. Call out Wallpaper Engine-specific caveats.
 
 ## Decision Rules
 
@@ -101,19 +151,17 @@ When several approaches could work, prefer them in this order:
 
 ## Product-Specific Caveats
 
+- Keep answers grounded in Wallpaper Engine terms instead of generic equivalents.
 - Do not mix SceneScript guidance into web wallpaper code unless the user is building both systems.
 - For web wallpapers, initialize `window.wallpaperPropertyListener` as a global object outside `window.onload`.
 - For web audio visualizers, register `window.wallpaperRegisterAudioListener(...)` directly and not inside `window.onload`.
 - For scene wallpapers, timeline is usually simpler than code for authored loops.
 - Use Wallpaper Engine performance docs instead of generic browser or engine optimization advice.
+- For shader work, prefer effect shaders. Do not advise replacing system shaders.
 
-## What To Deliver
+## Style Rules
 
-When responding, provide:
-
-1. The chosen Wallpaper Engine subsystem
-2. The minimum viable implementation path
-3. Concrete steps or code
-4. Any Wallpaper Engine-specific caveats
-
-If the request is ambiguous, infer `scene` vs `web` from the user's files, APIs, and terminology.
+- Be concrete and implementation-oriented.
+- Prefer small working snippets over abstract explanations.
+- Explain tradeoffs when choosing between timeline, SceneScript, web JavaScript, and shaders.
+- If the request is ambiguous, infer `scene` vs `web` from the user's files, APIs, and terminology.
